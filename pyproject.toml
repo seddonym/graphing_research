@@ -1,0 +1,23 @@
+[project]
+name = "graphing"
+version = "0.1.0"
+description = "Tools for researching Python source code graphs"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "grimp>=3.11",
+    "networkx>=3.5",
+    "typer>=0.19.2",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.13.3",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.scripts]
+app = "graphing.cli:app"
