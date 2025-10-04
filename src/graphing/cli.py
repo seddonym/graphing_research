@@ -13,8 +13,6 @@ def save(
     destination: Annotated[Path, typer.Option()],
     hash_salt: Annotated[str, typer.Option()] = "",
 ) -> None:
-    import sys
-    print(sys.path)
     graph = saving.save(package, destination, hash_salt)
 
     if hash_salt:
