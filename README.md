@@ -10,7 +10,7 @@ name is separately hashed, so `74185739980.87970842061` will be a child of `7418
 
 ## System requirements
 
-`uv`: https://docs.astral.sh/uv/getting-started/installation/
+`uv` (>= 0.9.2): https://docs.astral.sh/uv/getting-started/installation/
 
 (Note: using uv means you don't need to activate virtual environments, all commands can be run from this repository's directory.)
 
@@ -50,8 +50,16 @@ uv run app save --package=flask \
 
 You have two options here:
 
-1. If the package is installable, you can add the package using the command `uv add PACKAGE` first.
-2. If it is in a project directory elsewhere on your computer, provide this directory as part of the `PYTHONPATH` environment variable when you run the command, e.g.:
+1. If the package is installable, you can make sure it's installed using uv's `--with` argument:
+
+```
+  uv run --with=flask \
+    app save \
+    --package=flask --destination=./exports/flask.json
+```
+
+2. If it is in a project directory elsewhere on your computer, provide this directory as part of the
+  `PYTHONPATH` environment variable when you run the command, e.g.:
 
 ```
 PYTHONPATH="/path/to/directory:$PYTHONPATH" \
